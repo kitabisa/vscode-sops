@@ -3,7 +3,7 @@
 	"displayName": "@kitabisa/vscode-sops",
 	"description": "",
 	"publisher": "kitabisa",
-	"version": "0.10.0",
+	"version": "0.10.4",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/kitabisa/vscode-sops"
@@ -15,16 +15,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:sops.info",
-		"onCommand:sops.enable_beta",
-		"onCommand:sops.disable_beta",
-		"onCommand:sops.toggle_original_file",
-		"onLanguage:yaml",
-		"onLanguage:json",
-		"onLanguage:ini",
-		"onLanguage:dotenv",
-		"onLanguage:plaintext",
-		"onLanguage:binary"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"license": "MIT",
@@ -106,9 +97,9 @@
 				"sops.indent": {
 					"type": "number",
 					"scope": "resource",
-					"default": 4,
-					"minimum": 0,
-					"description": "The number of spaces to indent YAML or JSON encoded files passed to sops --indent (default: 4)"
+					"default": 2,
+					"minimum": 2,
+					"description": "The number of spaces to indent YAML or JSON encoded files passed to sops --indent (default: 2)"
 				}
 			}
 		},
