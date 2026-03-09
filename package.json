@@ -2,7 +2,7 @@
 	"name": "kitabisa-vscode-sops",
 	"displayName": "@kitabisa/vscode-sops",
 	"description": "",
-	"publisher": "signageos",
+	"publisher": "kitabisa",
 	"version": "0.10.0",
 	"repository": {
 		"type": "git",
@@ -15,7 +15,16 @@
 		"Other"
 	],
 	"activationEvents": [
-		"*"
+		"onCommand:sops.info",
+		"onCommand:sops.enable_beta",
+		"onCommand:sops.disable_beta",
+		"onCommand:sops.toggle_original_file",
+		"onLanguage:yaml",
+		"onLanguage:json",
+		"onLanguage:ini",
+		"onLanguage:dotenv",
+		"onLanguage:plaintext",
+		"onLanguage:binary"
 	],
 	"main": "./out/extension.js",
 	"license": "MIT",
