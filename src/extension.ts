@@ -43,6 +43,7 @@ enum ConfigName {
 	configPath = 'configPath', // Run Control path
 	ignoreMac = "ignoreMac",
 	macOnlyEncrypted = "macOnlyEncrypted",
+	indent = 'indent',
 }
 interface IRunControl {
 	awsProfile?: string;
@@ -520,6 +521,8 @@ async function getSopsGeneralOptions(fileUriToEncryptOrDecrypt: vscode.Uri) {
 	const defaultAgeKeyFile: string | undefined = vscode.workspace.getConfiguration(CONFIG_BASE_SECTION).get(ConfigName.defaultAgeKeyFile);
 	const ignoreMac: boolean | undefined = vscode.workspace.getConfiguration(CONFIG_BASE_SECTION).get(ConfigName.ignoreMac);
 	const macOnlyEncrypted: boolean | undefined = vscode.workspace.getConfiguration(CONFIG_BASE_SECTION).get(ConfigName.macOnlyEncrypted);
+	const indentConfig = vscode.workspace.getConfiguration(CONFIG_BASE_SECTION).get<number | string>(ConfigName.indent);
+	const indent = typeof indentConfig === 'string' ? Number.parseInt(indentConfig, 10) : indentConfig;
 	debug('config', { defaultAwsProfile, defaultGcpCredentialsPath, defaultAgeKeyFile });
 	const rc = await getRunControl();
 	const awsProfile = rc.awsProfile ?? defaultAwsProfile;
@@ -540,6 +543,10 @@ async function getSopsGeneralOptions(fileUriToEncryptOrDecrypt: vscode.Uri) {
 
 	if (macOnlyEncrypted) {
 		sopsGeneralArgs.push('--mac-only-encrypted');
+	}
+
+	if (typeof indent === 'number' && Number.isInteger(indent) && indent >= 0) {
+		sopsGeneralArgs.push('--indent', String(indent));
 	}
 
 	if (gcpCredentialsPath) {

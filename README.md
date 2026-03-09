@@ -34,6 +34,7 @@ This extension works with binaries `sops / age / ...` installed via [aquaproj/aq
 * `sops.creationEnabled`: enable/disable this extension to try encrypt files included in .sops.yaml path_regex when is not encrypted yet (default: false)
 * `sops.ignoreMac`: enable/disable MAC verification
 * `sops.macOnlyEncrypted`: compute MAC only over values which end up encrypted
+* `sops.indent`: number of spaces used to indent YAML or JSON encoded files via `sops --indent` (default: 4)
 
 ## Config file
 > Named `.sopsrc` in project root by default and is in YAML format.
