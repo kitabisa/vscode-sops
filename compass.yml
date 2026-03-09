@@ -1,0 +1,16 @@
+name: vscode-sops
+id: ari:cloud:compass:ae9ec5f8-e892-4eda-9314-548dfad7b7fb:component/2b2df9d4-8719-41e2-ab56-c6f02232532a/e0938b0a-fe1a-4667-a064-163d3c8dbe97
+description: null
+configVersion: 1
+typeId: SERVICE
+fields:
+  tier: 4
+links:
+  - name: null
+    type: REPOSITORY
+    url: https://github.com/kitabisa/vscode-sops
+relationships:
+  DEPENDS_ON: []
+labels:
+  - source:github
+customFields: null
